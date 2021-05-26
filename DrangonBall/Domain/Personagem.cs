@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DrangonBall.Domain {
     public class Personagem {
-        public int Id { get; set; }
+        public int PersonagemId { get; set; }
 
         public int RacaId { get; set; }
 
