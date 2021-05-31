@@ -5,7 +5,7 @@ namespace DragonBall.Models
     public class Classe
     {
         [Key]
-        public int Id { get; set; }
+        public int ClasseId { get; set; }
 
         [Required(ErrorMessage = "Este campo é obrigatório")]
         [MaxLength(1000, ErrorMessage = "Este compo deve conter entre 1 e 1000 caracteres")]
