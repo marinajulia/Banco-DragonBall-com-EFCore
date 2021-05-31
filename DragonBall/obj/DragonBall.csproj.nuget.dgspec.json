@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marina\\Desktop\\DragonBall\\DragonBall.csproj": {}
+    "C:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\DragonBall.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marina\\Desktop\\DragonBall\\DragonBall.csproj": {
+    "C:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\DragonBall.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marina\\Desktop\\DragonBall\\DragonBall.csproj",
+        "projectUniqueName": "C:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\DragonBall.csproj",
         "projectName": "DragonBall",
-        "projectPath": "C:\\Users\\Marina\\Desktop\\DragonBall\\DragonBall.csproj",
+        "projectPath": "C:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\DragonBall.csproj",
         "packagesPath": "C:\\Users\\Marina\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marina\\Desktop\\DragonBall\\obj\\",
+        "outputPath": "C:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -46,6 +46,26 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
