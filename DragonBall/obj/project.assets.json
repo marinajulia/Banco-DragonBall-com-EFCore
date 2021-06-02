@@ -5987,11 +5987,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\DragonBall.csproj",
+      "projectUniqueName": "c:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\DragonBall.csproj",
       "projectName": "DragonBall",
-      "projectPath": "C:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\DragonBall.csproj",
+      "projectPath": "c:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\DragonBall.csproj",
       "packagesPath": "C:\\Users\\Marina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\obj\\",
+      "outputPath": "c:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
