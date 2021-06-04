@@ -58,9 +58,11 @@ namespace DragonBall.Controllers
             if (ModelState.IsValid)
             {
                 var classeData = context.Classe.FirstOrDefault(x => x.ClasseId == model.ClasseId);
-                if (classeData == null)
-                    return BadRequest("A classe informada não foi encontrada");
+                if (classeData == null) return BadRequest("A classe informada não foi encontrada");
 
+
+                var racadata = context.Raca.FirstOrDefault(x => x.RacaId == model.RacaId);
+                if (racadata == null) return BadRequest("A raça informada não foi encontrada");
 
                 context.Personagem.Add(model);
                 await context.SaveChangesAsync();

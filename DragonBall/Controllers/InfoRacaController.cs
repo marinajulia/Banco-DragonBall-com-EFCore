@@ -43,15 +43,15 @@ namespace DragonBall.Controllers
             return infoRaca1;
         }
 
-        [HttpPost]
-        [Route("")]
-
-        public async Task<ActionResult<InfoRaca>> Post(
-            [FromServices] DataContext context,
-            [FromBody] InfoRaca model)
+       public async Task<ActionResult<InfoRaca>> Post(
+           [FromServices] DataContext context,
+           [FromBody] InfoRaca model)
         {
             if (ModelState.IsValid)
             {
+                var racadata = context.Raca.FirstOrDefault(x => x.RacaId == model.RacaId);
+                if (racadata == null) return BadRequest("A raça informada não foi encontrada");
+
                 context.InfoRaca.Add(model);
                 await context.SaveChangesAsync();
                 return model;
