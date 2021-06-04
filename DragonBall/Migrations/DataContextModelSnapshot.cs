@@ -107,13 +107,13 @@ namespace DragonBall.Migrations
 
             modelBuilder.Entity("DragonBall.Models.InfoRaca", b =>
                 {
-                    b.HasOne("DragonBall.Models.Raca", "raca")
+                    b.HasOne("DragonBall.Models.Raca", "Raca")
                         .WithMany()
                         .HasForeignKey("RacaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("raca");
+                    b.Navigation("Raca");
                 });
 
             modelBuilder.Entity("DragonBall.Models.Personagem", b =>

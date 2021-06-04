@@ -16,7 +16,7 @@ namespace DragonBall.Controllers
         [Route("")]
         public async Task<ActionResult<List<InfoRaca>>> Get([FromServices] DataContext context)
         {
-            var infoRacas = await context.InfoRaca.Include(x => x.raca).ToListAsync();
+            var infoRacas = await context.InfoRaca.Include(x => x.Raca).ToListAsync();
             return infoRacas;
         }
 
@@ -25,7 +25,7 @@ namespace DragonBall.Controllers
 
         public async Task<ActionResult<InfoRaca>> GetById([FromServices] DataContext context, int id)
         {
-            var infoRaca = await context.InfoRaca.Include(x => x.raca)
+            var infoRaca = await context.InfoRaca.Include(x => x.Raca)
             .AsNoTracking()
             .FirstOrDefaultAsync(x => x.InfoRacaId == id);
             return infoRaca;
@@ -37,7 +37,7 @@ namespace DragonBall.Controllers
         public async Task<ActionResult<List<InfoRaca>>> GetByIdCategory([FromServices] DataContext context, int id)
         {
             var infoRaca1 = await context.InfoRaca
-            .Include(x => x.raca)
+            .Include(x => x.Raca)
             .AsNoTracking()
             .Where(x => x.RacaId == id).ToListAsync();
             return infoRaca1;

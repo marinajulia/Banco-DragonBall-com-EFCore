@@ -28,7 +28,7 @@ namespace DragonBall
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallAPI;Integrated Security=True"));
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallAPI2;Integrated Security=True"));
             services.AddScoped<DataContext, DataContext>();
 
 

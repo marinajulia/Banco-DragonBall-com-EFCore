@@ -13,6 +13,6 @@ namespace DragonBall.Models
         public string DescricaoInfoRaca { get; set; }
 
         public int RacaId { get; set; }
-        public Raca raca { get; set; }
+        public Raca Raca { get; set; }
     }
 }

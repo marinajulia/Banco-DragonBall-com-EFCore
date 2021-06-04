@@ -2,7 +2,7 @@
 
 namespace DragonBall.Migrations
 {
-    public partial class DragonBall : Migration
+    public partial class DragonBall1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
