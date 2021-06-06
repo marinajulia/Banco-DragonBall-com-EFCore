@@ -63,16 +63,25 @@ namespace DragonBall.Controllers
 
                 var racaData = context.Raca.FirstOrDefault(x => x.RacaId == model.RacaId);
                 if (racaData == null) return BadRequest("A raça informada não foi encontrada");
-                context.Personagem.Add(model);
-                await context.SaveChangesAsync();
-                return model;
+
+
+                if (!VerificarPersonagem.VerificaNomePersonagem(context, model.Nome))
+                {
+                    context.Personagem.Add(model);
+                    await context.SaveChangesAsync();
+                    return model;
+
+                }
+                else
+                {
+                    return BadRequest("O nome informado já foi cadastrado");
+                }
             }
             else
             {
-                return BadRequest(ModelState);
+                return BadRequest("O nome informado já foi cadastrado");
             }
         }
-
 
     }
 }
