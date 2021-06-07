@@ -7,9 +7,15 @@ namespace DragonBall.Models
         public static bool VerificaNomePersonagem(DataContext dc, string NomePersonagem)
         {
 
-            var existeNomePersonagem = (from u in dc.Personagem
-                                        where u.Nome == NomePersonagem
-                                        select u).FirstOrDefault();
+            // var existeNomePersonagem = (from u in dc.Personagem
+            //                             where u.Nome == NomePersonagem
+            //                             select u).FirstOrDefault();
+
+            NomePersonagem = NomePersonagem.Trim();
+            NomePersonagem = NomePersonagem.ToLower();
+
+            var existeNomePersonagem = dc.Personagem.FirstOrDefault(x => x.Nome == NomePersonagem);
+
 
             if (existeNomePersonagem != null)
                 return true;
