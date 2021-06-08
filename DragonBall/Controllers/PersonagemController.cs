@@ -67,6 +67,7 @@ namespace DragonBall.Controllers
 
                 if (!VerificarPersonagem.VerificaNomePersonagem(context, model.Nome))
                 {
+                    model.Nome = model.Nome.ToLower();
                     context.Personagem.Add(model);
                     await context.SaveChangesAsync();
                     return model;
