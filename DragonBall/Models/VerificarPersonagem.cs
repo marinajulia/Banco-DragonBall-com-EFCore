@@ -1,4 +1,5 @@
 using DragonBall.Data;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 namespace DragonBall.Models
 {
@@ -6,16 +7,13 @@ namespace DragonBall.Models
     {
         public static bool VerificaNomePersonagem(DataContext dc, string NomePersonagem)
         {
-
-            // var existeNomePersonagem = (from u in dc.Personagem
-            //                             where u.Nome == NomePersonagem
-            //                             select u).FirstOrDefault();
-
             NomePersonagem = NomePersonagem.Trim();
-            NomePersonagem = NomePersonagem.ToLower();
 
-            var existeNomePersonagem = dc.Personagem.FirstOrDefault(x => x.Nome == NomePersonagem);
+            var existeNomePersonagem = dc.Personagem.FirstOrDefault(x => x.Nome.ToLower() == NomePersonagem.ToLower());
 
+            // var nome = dc.Personagem.FirstOrDefault(x => x.Nome == "PAo");
+            // nome.Nome = nome.Nome.ToLower();
+            // var teste = nome.Nome;
 
             if (existeNomePersonagem != null)
                 return true;
