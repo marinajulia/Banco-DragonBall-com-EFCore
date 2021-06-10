@@ -1,16 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using DragonBall.Models;
+using Microsoft.Extensions.Options;
 
 namespace DragonBall.Data
 {
     public class DataContext : DbContext
     {
 
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        // public DataContext(DbContextOptions<DataContext> options) : base(options)
+        // {
+
+        // }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallAPI2;Integrated Security=True");
         }
-
         public DbSet<Raca> Raca { get; set; }
         public DbSet<InfoRaca> InfoRaca { get; set; }
         public DbSet<Classe> Classe { get; set; }
