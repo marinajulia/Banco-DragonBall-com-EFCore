@@ -7,11 +7,13 @@ namespace DragonBall.Data
     public class DataContext : DbContext
     {
 
-        // public DataContext(DbContextOptions<DataContext> options) : base(options)
-        // {
-
-        // }
-
+        public class ApplicationDbContext : DbContext
+        {
+            public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+                : base(options)
+            {
+            }
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallAPI2;Integrated Security=True");
