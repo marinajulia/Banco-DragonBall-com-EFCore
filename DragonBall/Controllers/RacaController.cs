@@ -32,7 +32,6 @@ namespace DragonBall.Controllers
             {
                 if (!VerificarRaca.VerificaNomeRaca(context, model.Nome))
                 {
-                    // model.Nome = model.Nome.ToLower();
                     context.Raca.Add(model);
                     await context.SaveChangesAsync();
                     return model;

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DragonBall.Data;
 using DragonBall.Models;
+using DragonBall.Repository.ClasseRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,18 +12,23 @@ namespace DragonBall.Controllers
     [Route("v1/classes")]
     public class ClasseController : ControllerBase
     {
-        [HttpGet]
-        [Route("")]
+        private readonly IClasseRepository _classeRepository;
 
-        public async Task<ActionResult<List<Classe>>> Get([FromServices] DataContext context)
+        public ClasseController(IClasseRepository classeRepository)
         {
-            var classes = await context.Classe.ToListAsync();
-            return classes;
+            _classeRepository = classeRepository;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var classes = _classeRepository.Get();
+
+            return Ok(classes);
         }
 
 
         [HttpPost]
-        [Route("")]
 
         public async Task<ActionResult<Classe>> Post(
             [FromServices] DataContext context,
@@ -39,6 +45,15 @@ namespace DragonBall.Controllers
                 return BadRequest(ModelState);
             }
 
+        }
+        [HttpGet("findbyid")]
+        public IActionResult GetById(int id)
+        {
+            var classe = _classeRepository.GetById(id);
+            if (classe == null)
+                return BadRequest("A classe não pode ser encontrada");
+
+            return Ok(classe);
         }
     }
 }

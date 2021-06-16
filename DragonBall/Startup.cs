@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DragonBall.Data;
+using DragonBall.Repository.ClasseRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,7 +31,7 @@ namespace DragonBall
         {
             // services.AddDbContext<DataContext>(options => options.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallAPI2;Integrated Security=True"));
             services.AddScoped<DataContext, DataContext>();
-
+            services.AddScoped<IClasseRepository, ClasseRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
