@@ -11,6 +11,8 @@ namespace DragonBall.Repository.ClasseRepository
         IEnumerable<Classe> Get();
         Classe GetById(int id);
         int Post(Classe classe);
+
+        // Classe GetByName(string name);
     }
 
 }

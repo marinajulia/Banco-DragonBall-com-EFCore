@@ -4,15 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using DragonBall.Data;
 using DragonBall.Repository.ClasseRepository;
+using DragonBall.Repository.RacaRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace DragonBall
@@ -32,6 +29,8 @@ namespace DragonBall
             // services.AddDbContext<DataContext>(options => options.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallAPI2;Integrated Security=True"));
             services.AddScoped<DataContext, DataContext>();
             services.AddScoped<IClasseRepository, ClasseRepository>();
+            services.AddScoped<IRacaRepository, RacaRepository>();
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

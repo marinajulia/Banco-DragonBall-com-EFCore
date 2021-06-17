@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using DragonBall.Data;
 using DragonBall.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DragonBall.Repository.ClasseRepository
 {
@@ -16,7 +13,7 @@ namespace DragonBall.Repository.ClasseRepository
             {
                 var classes = context.Classe;
 
-                return classes;
+                return classes.ToList();
             }
         }
 
@@ -26,9 +23,25 @@ namespace DragonBall.Repository.ClasseRepository
             {
                 var classe = context.Classe.FirstOrDefault(x => x.ClasseId == id);
 
+
+                /*
+                    context.Add() = insert
+                    context.Remove = delete
+                    context.Update();
+                */
                 return classe;
             }
         }
+
+        // public Classe GetByName(string name)
+        // {
+        //     using (var context = new DataContext())
+        //     {
+        //         var classe = context.Classe.FirstOrDefault(x => x.DescricaoClasse.Trim().ToLower() == name.Trim().ToLower());
+
+        //         return classe;
+        //     }
+        // }
 
         public int Post(Classe classe)
         {
