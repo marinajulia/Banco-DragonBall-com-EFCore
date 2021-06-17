@@ -12,7 +12,7 @@ namespace DragonBall.Repository.RacaRepository
             using (var context = new DataContext())
             {
                 var raca = context.Raca;
-                return raca;
+                return raca.ToList();
             }
         }
 

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DragonBall.Data;
 using DragonBall.Models;
+using DragonBall.Repository.RacaRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,13 +12,20 @@ namespace DragonBall.Controllers
     [Route("v1/racas")]
     public class RacaController : ControllerBase
     {
+        private readonly IRacaRepository _racaRepository;
+
+        public RacaController(IRacaRepository racaRepository)
+        {
+            _racaRepository = racaRepository;
+        }
+
         [HttpGet]
         [Route("")]
 
-        public async Task<ActionResult<List<Raca>>> Get([FromServices] DataContext context)
+        public ActionResult Get()
         {
-            var racas = await context.Raca.ToListAsync();
-            return racas;
+            var raca = _racaRepository.Get();
+            return Ok(raca);
         }
 
 
@@ -49,5 +57,17 @@ namespace DragonBall.Controllers
             }
 
         }
+
+        [HttpGet("finbyid")]
+        public IActionResult GetById(int id)
+        {
+            var raca = _racaRepository.GetById(id);
+            if (raca == null)
+                return BadRequest("A Raça não pode ser encontrada");
+
+            return Ok(raca);
+        }
+
+
     }
 }
