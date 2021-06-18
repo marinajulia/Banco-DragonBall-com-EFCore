@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cc2DtObA72C0S18/Wuqv/Bc1aS1RfM1IfRfM4fWwpl+6lDsqWwKpmi5+4XqgAQPeppvQ+sjcsZYOeibTYMHB8w==",
+  "dgSpecHash": "fVMc/kE8OeyLC3b1oUHjzS4bwg8J79SdXNvnQ8naWrrONGi19tiBH5pRe6Fllc5pE2Affsio13h2Sj+S1ckEFQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marina\\source\\repos\\DrangonBall\\DragonBall\\DragonBall.csproj",
+  "projectFilePath": "C:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marina\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -23,12 +23,22 @@ namespace DragonBall.Repository.ClasseRepository
             {
                 var classe = context.Classe.FirstOrDefault(x => x.ClasseId == id);
 
-
                 /*
                     context.Add() = insert
                     context.Remove = delete
                     context.Update();
                 */
+                return classe;
+            }
+        }
+
+        public Classe Post(Classe classe)
+        {
+            using (var context = new DataContext())
+            {
+                context.Classe.Add(classe);
+                context.SaveChanges();
+
                 return classe;
             }
         }
@@ -42,16 +52,5 @@ namespace DragonBall.Repository.ClasseRepository
         //         return classe;
         //     }
         // }
-
-        public int Post(Classe classe)
-        {
-            using (var context = new DataContext())
-            {
-                context.Classe.Add(classe);
-                context.SaveChanges();
-
-                return classe.ClasseId;
-            }
-        }
     }
 }

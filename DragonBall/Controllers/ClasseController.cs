@@ -30,15 +30,13 @@ namespace DragonBall.Controllers
 
         [HttpPost]
 
-        public async Task<ActionResult<Classe>> Post(
-            [FromServices] DataContext context,
-            [FromBody] Classe model)
+        public ActionResult Post(Classe classe)
         {
             if (ModelState.IsValid)
             {
-                context.Classe.Add(model);
-                await context.SaveChangesAsync();
-                return model;
+                var classes = _classeRepository.Post(classe);
+
+                return Ok(classes);
             }
             else
             {

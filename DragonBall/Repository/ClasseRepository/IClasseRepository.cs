@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using DragonBall.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DragonBall.Repository.ClasseRepository
 {
@@ -10,7 +7,7 @@ namespace DragonBall.Repository.ClasseRepository
     {
         IEnumerable<Classe> Get();
         Classe GetById(int id);
-        int Post(Classe classe);
+        Classe Post(Classe classe);
 
         // Classe GetByName(string name);
     }
