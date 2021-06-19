@@ -7,6 +7,6 @@ namespace DragonBall.Repository.RacaRepository
     {
         IEnumerable<Raca> Get();
         Raca GetById(int id);
-        int Post(Raca raca);
+        Raca Post(Raca raca);
     }
 }

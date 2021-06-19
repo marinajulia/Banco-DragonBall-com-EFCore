@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DragonBall.Data;
@@ -32,22 +33,19 @@ namespace DragonBall.Controllers
         [HttpPost]
         [Route("")]
 
-        public async Task<ActionResult<Raca>> Post(
-            [FromServices] DataContext context,
-            [FromBody] Raca model)
+        public IActionResult Post(Raca raca)
         {
             if (ModelState.IsValid)
             {
-                if (!VerificarRaca.VerificaNomeRaca(context, model.Nome))
+                try
                 {
-                    context.Raca.Add(model);
-                    await context.SaveChangesAsync();
-                    return model;
-
+                    var racas = _racaRepository.Post(raca);
+                    return Ok(raca);
                 }
-                else
+                catch (Exception ex)
                 {
-                    return BadRequest("O nome informado já foi cadastrado");
+                    System.Console.WriteLine(ex);
+                    return BadRequest("A classe já existe");
                 }
 
             }

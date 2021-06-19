@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DragonBall.Data;
@@ -25,13 +26,22 @@ namespace DragonBall.Repository.RacaRepository
             }
         }
 
-        public int Post(Raca raca)
+        public Raca Post(Raca raca)
         {
             using (var context = new DataContext())
             {
-                context.Raca.Add(raca);
-                context.SaveChanges();
-                return raca.RacaId;
+                var jaExiste = VerificarRaca.VerificaNomeRaca(context, raca.Nome);
+                if (!jaExiste)
+                {
+                    context.Raca.Add(raca);
+                    context.SaveChanges();
+                    return raca;
+
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
         }
     }
