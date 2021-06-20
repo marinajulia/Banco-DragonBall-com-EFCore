@@ -7,6 +7,7 @@ using DragonBall.Data;
 using DragonBall.Models;
 using DragonBall.Repository.InfoRacaRepository;
 using DragonBall.Repository.RacaRepository;
+using System;
 
 namespace DragonBall.Controllers
 {
@@ -51,10 +52,20 @@ namespace DragonBall.Controllers
             }
             else
             {
-                var raca = _racaRepository.GetById(infoRaca.RacaId);
-                if (raca == null) return BadRequest("Raca n existe");
-                var infoRacas = _infoRacaRepository.Post(infoRaca);
-                return Ok(infoRacas);
+                try
+                {
+                    var raca = _racaRepository.GetById(infoRaca.RacaId);
+                    if (raca == null) return BadRequest("Raca não existe para ser cadastrada");
+                    var infoRacas = _infoRacaRepository.Post(infoRaca);
+                    return Ok(infoRacas);
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex);
+                    return BadRequest("A classe já está cadastrada");
+                }
+
+
             }
 
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DragonBall.Data;
 using DragonBall.Models;
@@ -20,19 +21,27 @@ namespace DragonBall.Repository.InfoRacaRepository
         {
             using (var context = new DataContext())
             {
-                // var racadata = context.Raca.FirstOrDefault(x => x.RacaId == model.RacaId);
-                // if (racadata == null)
-                //     return BadRequest("A raça informada não foi encontrada");
-                // // var racas = _racaRepository.Get(raca);
-                // // context.InfoRaca.Add(model);
-                // // await context.SaveChangesAsync();
-                // // return model;
-
-                context.InfoRaca.Add(infoRaca);
-                context.SaveChanges();
-
-                return infoRaca;
+                var jaExiste = VerificarInfoRaca.VerificaIdRaca(context, infoRaca.RacaId);
+                if (!jaExiste)
+                {
+                    context.InfoRaca.Add(infoRaca);
+                    context.SaveChanges();
+                    return infoRaca;
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
         }
     }
 }
+
+//verificação no controller
+// var racadata = context.Raca.FirstOrDefault(x => x.RacaId == model.RacaId);
+// if (racadata == null)
+//     return BadRequest("A raça informada não foi encontrada");
+// // var racas = _racaRepository.Get(raca);
+// // context.InfoRaca.Add(model);
+// // await context.SaveChangesAsync();
+// // return model;
