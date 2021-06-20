@@ -29,7 +29,6 @@ namespace DragonBall.Controllers
 
 
         [HttpPost]
-
         public ActionResult Post(Classe classe)
         {
             if (ModelState.IsValid)

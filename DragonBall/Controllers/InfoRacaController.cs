@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DragonBall.Data;
 using DragonBall.Models;
+using DragonBall.Repository.InfoRacaRepository;
+using DragonBall.Repository.RacaRepository;
 
 namespace DragonBall.Controllers
 {
@@ -12,8 +14,16 @@ namespace DragonBall.Controllers
     [Route("v1/InfoRaca")]
     public class InfoRacaController : ControllerBase
     {
+        private readonly IInfoRacaRepository _infoRacaRepository;
+        private readonly IRacaRepository _racaRepository;
+        public InfoRacaController(IInfoRacaRepository infoRacaRepository, IRacaRepository racaRepository)
+        {
+            _infoRacaRepository = infoRacaRepository;
+            _racaRepository = racaRepository;
+
+        }
+
         [HttpGet]
-        [Route("")]
         public async Task<ActionResult<List<InfoRaca>>> Get([FromServices] DataContext context)
         {
             var infoRacas = await context.InfoRaca.Include(x => x.Raca).ToListAsync();
@@ -31,36 +41,35 @@ namespace DragonBall.Controllers
             return infoRaca;
         }
 
-        [HttpGet]
-        [Route("InfoRaca/{id:int}")]
 
-        public async Task<ActionResult<List<InfoRaca>>> GetByIdCategory([FromServices] DataContext context, int id)
+        [HttpPost]
+        public ActionResult Post(InfoRaca infoRaca)
         {
-            var infoRaca1 = await context.InfoRaca
-            .Include(x => x.Raca)
-            .AsNoTracking()
-            .Where(x => x.RacaId == id).ToListAsync();
-            return infoRaca1;
-        }
-
-       public async Task<ActionResult<InfoRaca>> Post(
-           [FromServices] DataContext context,
-           [FromBody] InfoRaca model)
-        {
-            if (ModelState.IsValid)
-            {
-                var racadata = context.Raca.FirstOrDefault(x => x.RacaId == model.RacaId);
-                if (racadata == null) return BadRequest("A raça informada não foi encontrada");
-
-                context.InfoRaca.Add(model);
-                await context.SaveChangesAsync();
-                return model;
-            }
-            else
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            else
+            {
+                var raca = _racaRepository.GetById(infoRaca.RacaId);
+                if (raca == null) return BadRequest("Raca n existe");
+                var infoRacas = _infoRacaRepository.Post(infoRaca);
+                return Ok(infoRacas);
+            }
+
         }
+
+        // [HttpGet]
+        // [Route("InfoRaca/{id:int}")]
+
+        // public async Task<ActionResult<List<InfoRaca>>> GetByIdCategory([FromServices] DataContext context, int id)
+        // {
+        //     var infoRaca1 = await context.InfoRaca
+        //     .Include(x => x.Raca)
+        //     .AsNoTracking()
+        //     .Where(x => x.RacaId == id).ToListAsync();
+        //     return infoRaca1;
+        // }
 
     }
 }

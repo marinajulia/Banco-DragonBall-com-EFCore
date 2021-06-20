@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DragonBall.Data;
 using DragonBall.Repository.ClasseRepository;
+using DragonBall.Repository.InfoRacaRepository;
 using DragonBall.Repository.RacaRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,7 +27,7 @@ namespace DragonBall
             services.AddScoped<DataContext, DataContext>();
             services.AddScoped<IClasseRepository, ClasseRepository>();
             services.AddScoped<IRacaRepository, RacaRepository>();
-
+            services.AddScoped<IInfoRacaRepository, InfoRacaRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

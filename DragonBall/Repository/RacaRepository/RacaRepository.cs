@@ -32,6 +32,7 @@ namespace DragonBall.Repository.RacaRepository
             {
                 var jaExiste = VerificarRaca.VerificaNomeRaca(context, raca.Nome);
                 if (!jaExiste)
+
                 {
                     context.Raca.Add(raca);
                     context.SaveChanges();

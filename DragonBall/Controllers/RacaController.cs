@@ -1,11 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using DragonBall.Data;
 using DragonBall.Models;
 using DragonBall.Repository.RacaRepository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DragonBall.Controllers
 {
@@ -31,8 +27,6 @@ namespace DragonBall.Controllers
 
 
         [HttpPost]
-        [Route("")]
-
         public IActionResult Post(Raca raca)
         {
             if (ModelState.IsValid)
