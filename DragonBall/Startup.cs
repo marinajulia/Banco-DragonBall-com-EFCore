@@ -1,6 +1,7 @@
 using DragonBall.Data;
 using DragonBall.Repository.ClasseRepository;
 using DragonBall.Repository.InfoRacaRepository;
+using DragonBall.Repository.PersonagemRepository;
 using DragonBall.Repository.RacaRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,7 @@ namespace DragonBall
             services.AddScoped<IClasseRepository, ClasseRepository>();
             services.AddScoped<IRacaRepository, RacaRepository>();
             services.AddScoped<IInfoRacaRepository, InfoRacaRepository>();
+            services.AddScoped<IPersonagemRepository, PersonagemRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -55,7 +55,7 @@ namespace DragonBall.Controllers
                 try
                 {
                     var raca = _racaRepository.GetById(infoRaca.RacaId);
-                    if (raca == null) return BadRequest("Raca não existe para ser cadastrada");
+                    if (raca == null) return BadRequest("Raca não existe");
                     var infoRacas = _infoRacaRepository.Post(infoRaca);
                     return Ok(infoRacas);
                 }
