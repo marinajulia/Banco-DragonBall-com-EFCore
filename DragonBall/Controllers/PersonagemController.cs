@@ -39,17 +39,14 @@ namespace DragonBall.Controllers
             return personagens;
         }
 
-        [HttpGet]
-        [Route("{id:int}")]
-
-        public async Task<ActionResult<Personagem>> GetById([FromServices] DataContext context, int id)
+        [HttpGet("findbyid")]
+        public ActionResult GetById(int id)
         {
-            var personagem = await context.Personagem
-            .Include(x => x.Raca)
-            .Include(x => x.Classe)
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.RacaId == id);
-            return personagem;
+            var personagem = _personagemRepository.GetById(id);
+            if (personagem == null)
+                return BadRequest("O personagem não pode ser encontrado");
+
+            return Ok(personagem);
         }
 
         // [HttpGet]

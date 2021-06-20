@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DragonBall.Data;
 using DragonBall.Models;
 
@@ -14,7 +15,11 @@ namespace DragonBall.Repository.PersonagemRepository
 
         public Personagem GetById(int id)
         {
-            throw new System.NotImplementedException();
+            using (var context = new DataContext())
+            {
+                var personagem = context.Personagem.FirstOrDefault(x => x.PersonagemId == id);
+                return personagem;
+            }
         }
 
         public Personagem Post(Personagem personagem)
