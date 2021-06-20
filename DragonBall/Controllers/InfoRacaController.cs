@@ -31,15 +31,14 @@ namespace DragonBall.Controllers
             return infoRacas;
         }
 
-        [HttpGet]
-        [Route("{id:int}")]
-
-        public async Task<ActionResult<InfoRaca>> GetById([FromServices] DataContext context, int id)
+        [HttpGet("findbyid")]
+        public ActionResult GetById(int id)
         {
-            var infoRaca = await context.InfoRaca.Include(x => x.Raca)
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.InfoRacaId == id);
-            return infoRaca;
+            var infoRaca = _infoRacaRepository.GetById(id);
+            if (infoRaca == null)
+                return BadRequest("A Raça não pode ser encontrada");
+
+            return Ok(infoRaca);
         }
 
 

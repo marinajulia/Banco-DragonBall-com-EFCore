@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DragonBall.Data;
 using DragonBall.Models;
 
@@ -14,7 +15,11 @@ namespace DragonBall.Repository.InfoRacaRepository
 
         public InfoRaca GetById(int id)
         {
-            throw new System.NotImplementedException();
+            using (var context = new DataContext())
+            {
+                var infoRaca = context.InfoRaca.FirstOrDefault(x => x.InfoRacaId == id);
+                return infoRaca;
+            }
         }
 
         public InfoRaca Post(InfoRaca infoRaca)
