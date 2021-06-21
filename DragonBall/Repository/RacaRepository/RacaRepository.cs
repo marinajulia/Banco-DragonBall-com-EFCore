@@ -25,7 +25,6 @@ namespace DragonBall.Repository.RacaRepository
                 return raca;
             }
         }
-
         public Raca Post(Raca raca)
         {
             using (var context = new DataContext())

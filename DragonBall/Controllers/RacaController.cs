@@ -50,8 +50,8 @@ namespace DragonBall.Controllers
 
         }
 
-        [HttpGet("finbyid")]
-        public IActionResult GetById(int id)
+        [HttpGet("findbyid")]
+        public ActionResult GetById(int id)
         {
             var raca = _racaRepository.GetById(id);
             if (raca == null)
