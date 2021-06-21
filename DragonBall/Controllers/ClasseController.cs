@@ -1,10 +1,6 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using DragonBall.Data;
 using DragonBall.Models;
 using DragonBall.Repository.ClasseRepository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DragonBall.Controllers
 {

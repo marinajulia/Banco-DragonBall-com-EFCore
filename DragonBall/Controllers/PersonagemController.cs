@@ -1,14 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DragonBall.Data;
 using DragonBall.Models;
 using DragonBall.Repository.ClasseRepository;
 using DragonBall.Repository.PersonagemRepository;
 using DragonBall.Repository.RacaRepository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DragonBall.Controllers
 {
@@ -78,7 +73,7 @@ namespace DragonBall.Controllers
                 {
 
                     System.Console.WriteLine(ex);
-                    return BadRequest("A classe/raça já está cadastrada");
+                    return BadRequest("Personagem já cadastrado");
                 }
             }
         }
