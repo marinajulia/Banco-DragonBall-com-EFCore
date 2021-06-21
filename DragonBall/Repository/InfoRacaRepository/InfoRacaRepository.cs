@@ -10,7 +10,12 @@ namespace DragonBall.Repository.InfoRacaRepository
     {
         public IEnumerable<InfoRaca> Get()
         {
-            throw new System.NotImplementedException();
+            using (var context = new DataContext())
+            {
+                var infoRacas = context.InfoRaca;
+
+                return infoRacas.ToList();
+            }
         }
 
         public InfoRaca GetById(int id)

@@ -25,10 +25,10 @@ namespace DragonBall.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<InfoRaca>>> Get([FromServices] DataContext context)
+        public ActionResult Get()
         {
-            var infoRacas = await context.InfoRaca.Include(x => x.Raca).ToListAsync();
-            return infoRacas;
+            var infoRacas = _infoRacaRepository.Get();
+            return Ok(infoRacas);
         }
 
         [HttpGet("findbyid")]
