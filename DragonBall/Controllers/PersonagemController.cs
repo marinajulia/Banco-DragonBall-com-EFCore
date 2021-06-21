@@ -28,15 +28,11 @@ namespace DragonBall.Controllers
         }
 
         [HttpGet]
-        [Route("")]
-
-        public async Task<ActionResult<List<Personagem>>> Get([FromServices] DataContext context)
+        public IActionResult Get()
         {
-            var personagens = await context.Personagem
-            .Include(x => x.Raca)
-            .Include(x => x.Classe)
-            .ToListAsync();
-            return personagens;
+            var personagens = _personagemRepository.Get();
+
+            return Ok(personagens);
         }
 
         [HttpGet("findbyid")]

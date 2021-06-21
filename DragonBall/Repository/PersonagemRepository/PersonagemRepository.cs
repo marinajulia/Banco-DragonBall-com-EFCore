@@ -10,7 +10,12 @@ namespace DragonBall.Repository.PersonagemRepository
     {
         public IEnumerable<Personagem> Get()
         {
-            throw new System.NotImplementedException();
+            using (var context = new DataContext())
+            {
+                var personagens = context.Personagem;
+
+                return personagens.ToList();
+            }
         }
 
         public Personagem GetById(int id)
