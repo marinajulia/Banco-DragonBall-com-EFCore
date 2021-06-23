@@ -8,5 +8,6 @@ namespace DragonBall.Repository.RacaRepository
         IEnumerable<Raca> Get();
         Raca GetById(int id);
         Raca Post(Raca raca);
+        Raca GetByName(string nome);
     }
 }

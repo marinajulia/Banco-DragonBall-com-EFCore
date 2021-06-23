@@ -25,6 +25,16 @@ namespace DragonBall.Repository.RacaRepository
                 return raca;
             }
         }
+
+        public Raca GetByName(string nome)
+        {
+            using (var context = new DataContext())
+            {
+                var raca = context.Raca.FirstOrDefault(x => x.Nome.Trim().ToLower() == nome.Trim().ToLower());
+                return raca;
+            }
+        }
+
         public Raca Post(Raca raca)
         {
             using (var context = new DataContext())

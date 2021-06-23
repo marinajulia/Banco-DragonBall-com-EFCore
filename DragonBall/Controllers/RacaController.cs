@@ -33,6 +33,11 @@ namespace DragonBall.Controllers
             {
                 try
                 {
+                    var nomeRaca = _racaRepository.GetByName(raca.Nome);
+
+                    if (nomeRaca != null)
+                        return BadRequest("Esta raça já existe");
+
                     var racas = _racaRepository.Post(raca);
                     return Ok(raca);
                 }
