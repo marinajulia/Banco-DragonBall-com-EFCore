@@ -39,7 +39,7 @@ namespace DragonBall.Controllers
                 catch (Exception ex)
                 {
                     System.Console.WriteLine(ex);
-                    return BadRequest("A classe já existe");
+                    return BadRequest("A raça já existe");
                 }
 
             }
