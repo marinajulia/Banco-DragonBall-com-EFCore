@@ -27,6 +27,15 @@ namespace DragonBall.Repository.PersonagemRepository
             }
         }
 
+        public Personagem GetByName(string nome)
+        {
+            using (var context = new DataContext())
+            {
+                var personagem = context.Personagem.FirstOrDefault(x => x.Nome.Trim().ToLower() == nome.Trim().ToLower());
+                return personagem;
+            }
+        }
+
         public Personagem Post(Personagem personagem)
         {
             using (var context = new DataContext())

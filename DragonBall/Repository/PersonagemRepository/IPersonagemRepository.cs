@@ -8,5 +8,6 @@ namespace DragonBall.Repository.PersonagemRepository
         IEnumerable<Personagem> Get();
         Personagem GetById(int id);
         Personagem Post(Personagem personagem);
+        Personagem GetByName(string nome);
     }
 }

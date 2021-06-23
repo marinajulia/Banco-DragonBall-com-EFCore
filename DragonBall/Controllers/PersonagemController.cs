@@ -63,11 +63,24 @@ namespace DragonBall.Controllers
                 try
                 {
                     var classe = _classeRepository.GetById(personagem.ClasseId);
+
+                    if (classe == null)
+                        return BadRequest("A classe não existe");
+
                     var raca = _racaRepository.GetById(personagem.RacaId);
 
-                    if (classe == null || raca == null) return BadRequest("A classe/raça não existe");
+                    if (raca == null)
+                        return BadRequest("A classe não existe");
+
+                    var nomePersonagem = _personagemRepository.GetByName(personagem.Nome);
+
+                    if (nomePersonagem != null)
+                        return BadRequest("Este personagem já existe");
+
                     var personagens = _personagemRepository.Post(personagem);
+
                     return Ok(personagens);
+
                 }
                 catch (Exception ex)
                 {
