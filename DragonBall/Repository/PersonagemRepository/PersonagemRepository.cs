@@ -40,17 +40,9 @@ namespace DragonBall.Repository.PersonagemRepository
         {
             using (var context = new DataContext())
             {
-                var jaExiste = VerificarPersonagem.VerificaNomePersonagem(context, personagem.Nome);
-                if (!jaExiste)
-                {
-                    context.Personagem.Add(personagem);
-                    context.SaveChanges();
-                    return personagem;
-                }
-                else
-                {
-                    throw new Exception();
-                }
+                context.Personagem.Add(personagem);
+                context.SaveChanges();
+                return personagem;
             }
         }
     }

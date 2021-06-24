@@ -29,9 +29,12 @@ namespace DragonBall.Controllers
         [HttpPost]
         public IActionResult Post(Raca raca)
         {
-            if (ModelState.IsValid)
+
+            try
             {
-                try
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+                else
                 {
                     var nomeRaca = _racaRepository.GetByName(raca.Nome);
 
@@ -41,18 +44,12 @@ namespace DragonBall.Controllers
                     var racas = _racaRepository.Post(raca);
                     return Ok(raca);
                 }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine(ex);
-                    return BadRequest("A raça já existe");
-                }
-
             }
-            else
+            catch (System.Exception e)
             {
-                return BadRequest(ModelState);
-            }
 
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpGet("findbyid")]
