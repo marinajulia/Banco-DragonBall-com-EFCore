@@ -3,6 +3,7 @@ using DragonBall.Repository.ClasseRepository;
 using DragonBall.Repository.InfoRacaRepository;
 using DragonBall.Repository.PersonagemRepository;
 using DragonBall.Repository.RacaRepository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,14 @@ namespace DragonBall
             services.AddScoped<IInfoRacaRepository, InfoRacaRepository>();
             services.AddScoped<IPersonagemRepository, PersonagemRepository>();
 
+            //gerendo autenticação:
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            });
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -53,6 +62,8 @@ namespace DragonBall
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
