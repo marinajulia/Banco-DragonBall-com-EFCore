@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DragonBall.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210603222427_DragonBall1")]
-    partial class DragonBall1
+    [Migration("20210628200559_TesteComNome")]
+    partial class TesteComNome
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,7 +75,6 @@ namespace DragonBall.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("PowerLevel")
-                        .HasMaxLength(10000)
                         .HasColumnType("int");
 
                     b.Property<int>("RacaId")
@@ -105,6 +104,24 @@ namespace DragonBall.Migrations
                     b.HasKey("RacaId");
 
                     b.ToTable("Raca");
+                });
+
+            modelBuilder.Entity("DragonBall.Models.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Password")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("DragonBall.Models.InfoRaca", b =>

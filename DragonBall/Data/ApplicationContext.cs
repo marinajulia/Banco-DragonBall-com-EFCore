@@ -16,12 +16,13 @@ namespace DragonBall.Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallAPI2;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallToken;Integrated Security=True");
         }
         public DbSet<Raca> Raca { get; set; }
         public DbSet<InfoRaca> InfoRaca { get; set; }
         public DbSet<Classe> Classe { get; set; }
         public DbSet<Personagem> Personagem { get; set; }
+        public DbSet<User> User { get; set; }
 
 
     }

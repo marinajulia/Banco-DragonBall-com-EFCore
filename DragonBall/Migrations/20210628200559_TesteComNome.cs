@@ -2,7 +2,7 @@
 
 namespace DragonBall.Migrations
 {
-    public partial class DragonBall1 : Migration
+    public partial class TesteComNome : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,6 +33,20 @@ namespace DragonBall.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.UserId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "InfoRaca",
                 columns: table => new
                 {
@@ -59,7 +73,7 @@ namespace DragonBall.Migrations
                     PersonagemId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    PowerLevel = table.Column<int>(type: "int", maxLength: 10000, nullable: false),
+                    PowerLevel = table.Column<int>(type: "int", nullable: false),
                     RacaId = table.Column<int>(type: "int", nullable: false),
                     ClasseId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -103,6 +117,9 @@ namespace DragonBall.Migrations
 
             migrationBuilder.DropTable(
                 name: "Personagem");
+
+            migrationBuilder.DropTable(
+                name: "User");
 
             migrationBuilder.DropTable(
                 name: "Classe");

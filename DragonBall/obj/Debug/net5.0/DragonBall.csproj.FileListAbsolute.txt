@@ -112,7 +112,6 @@ C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\bin\De
 C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -149,3 +148,4 @@ C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\obj\De
 C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\obj\Debug\net5.0\ref\DragonBall.dll
 C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\obj\Debug\net5.0\DragonBall.pdb
 C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\obj\Debug\net5.0\DragonBall.genruntimeconfig.cache
+C:\Users\Marina\Desktop\DragonBall\Banco-DragonBall-com-EFCore\DragonBall\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
