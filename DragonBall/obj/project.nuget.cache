@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0iGd/JMsLuy15FuChXb5kzSDqkNZ1fmlcanIj0XVw3aXtGm5aeZaSiccV/gX1sgcQD8Cjd344Z4QdJek7HL41w==",
+  "dgSpecHash": "1QZcjZqq9hAqIuLXCoeBRFOgI+qb40bLSqC+HZHs5plFTxz7DjBs1htw9PPunbBf+UhH/4yEeDH6dS5ZClMf8w==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj",
+  "projectFilePath": "C:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marina\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.7\\microsoft.aspnetcore.authentication.jwtbearer.5.0.7.nupkg.sha512",
@@ -103,9 +103,9 @@
     "C:\\Users\\Marina\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Marina\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Marina\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\Marina\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+    "C:\\Users\\Marina\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

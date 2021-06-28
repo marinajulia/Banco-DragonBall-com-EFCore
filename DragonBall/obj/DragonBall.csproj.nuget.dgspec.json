@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj": {}
+    "C:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj": {
+    "C:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj",
+        "projectUniqueName": "C:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj",
         "projectName": "DragonBall",
-        "projectPath": "c:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj",
+        "projectPath": "C:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj",
         "packagesPath": "C:\\Users\\Marina\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\obj\\",
+        "outputPath": "C:\\Users\\Marina\\Desktop\\DragonBall\\Banco-DragonBall-com-EFCore\\DragonBall\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
