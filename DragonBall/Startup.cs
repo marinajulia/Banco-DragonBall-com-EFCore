@@ -3,6 +3,7 @@ using DragonBall.Repository.ClasseRepository;
 using DragonBall.Repository.InfoRacaRepository;
 using DragonBall.Repository.PersonagemRepository;
 using DragonBall.Repository.RacaRepository;
+using DragonBall.Repository.UsuarioRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,7 @@ namespace DragonBall
             services.AddScoped<IRacaRepository, RacaRepository>();
             services.AddScoped<IInfoRacaRepository, InfoRacaRepository>();
             services.AddScoped<IPersonagemRepository, PersonagemRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
             //gerendo autenticação:
 
