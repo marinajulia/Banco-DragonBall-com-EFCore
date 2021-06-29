@@ -2,7 +2,7 @@
 
 namespace DragonBall.Migrations
 {
-    public partial class TesteComNome : Migration
+    public partial class DragonBall : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
