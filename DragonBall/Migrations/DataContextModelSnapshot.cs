@@ -104,14 +104,14 @@ namespace DragonBall.Migrations
                     b.ToTable("Raca");
                 });
 
-            modelBuilder.Entity("DragonBall.Models.User", b =>
+            modelBuilder.Entity("DragonBall.Models.Usuario", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Password")
+                    b.Property<int>("Senha")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -119,7 +119,7 @@ namespace DragonBall.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("User");
+                    b.ToTable("Usuario");
                 });
 
             modelBuilder.Entity("DragonBall.Models.InfoRaca", b =>

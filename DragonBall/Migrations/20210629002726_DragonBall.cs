@@ -33,17 +33,17 @@ namespace DragonBall.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Usuario",
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<int>(type: "int", nullable: false)
+                    Senha = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserId);
+                    table.PrimaryKey("PK_Usuario", x => x.UserId);
                 });
 
             migrationBuilder.CreateTable(
@@ -119,7 +119,7 @@ namespace DragonBall.Migrations
                 name: "Personagem");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Usuario");
 
             migrationBuilder.DropTable(
                 name: "Classe");

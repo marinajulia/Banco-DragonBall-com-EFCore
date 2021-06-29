@@ -5,11 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace DragonBall.Models {
-    public class User {
+    public class Usuario {
         [Key]
         public  int UserId { get; set; }
         public  string UserName { get; set; }
-        public int Password { get; set; }
+        public int Senha { get; set; }
     
     }
 }

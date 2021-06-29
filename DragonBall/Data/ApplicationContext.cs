@@ -24,7 +24,7 @@ namespace DragonBall.Data
         public DbSet<InfoRaca> InfoRaca { get; set; }
         public DbSet<Classe> Classe { get; set; }
         public DbSet<Personagem> Personagem { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
 
     }
