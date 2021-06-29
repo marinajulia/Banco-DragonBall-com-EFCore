@@ -1,5 +1,4 @@
-﻿using DragonBall.Data;
-using DragonBall.Models;
+﻿using DragonBall.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,35 +6,15 @@ using System.Threading.Tasks;
 
 namespace DragonBall.Repository.UsuarioRepository
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public static class UsuarioRepository
     {
-        public IEnumerable<Usuario> Get()
+
+        public static Usuario Get(string userName, string senha)
         {
-            using (var context = new DataContext())
-            {
-                var usuario = context.Usuario;
-                return usuario.ToList();
-            }
+            var usuarios = new List<Usuario>();
+            return usuarios.Where(x => x.UserName.ToLower() == userName.ToLower() && x.Senha == x.Senha).FirstOrDefault();
+
         }
 
-        public Usuario GetById(int id)
-        {
-            using (var context = new DataContext())
-            {
-                var usuario = context.Usuario.FirstOrDefault(x => x.UserId == id);
-                return usuario;
-            }
-        }
-
-        public Usuario Post(Usuario usuario)
-        {
-            using (var context = new DataContext())
-            {
-                context.Usuario.Add(usuario);
-                context.SaveChanges();
-
-                return usuario;
-            }
-        }
     }
 }
