@@ -13,6 +13,7 @@ namespace DragonBall.Data.Configurations {
             builder.HasKey(p => p.UserId);
             builder.Property(p => p.UserName).IsRequired();
             builder.Property(p => p.Senha).IsRequired();
+            builder.Property(p => p.Role);
         }
     }
 }

@@ -111,8 +111,11 @@ namespace DragonBall.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Senha")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Senha")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");

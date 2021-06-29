@@ -7,7 +7,6 @@ using DragonBall.Repository.UsuarioRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,23 +34,19 @@ namespace DragonBall
             services.AddScoped<IPersonagemRepository, PersonagemRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
-
             services.AddCors();
             services.AddControllers();
 
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
-            services.AddAuthentication(x =>
-            {
+            services.AddAuthentication(x => {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(x =>
-            {
+            .AddJwtBearer(x => {
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
+                x.TokenValidationParameters = new TokenValidationParameters {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
@@ -65,7 +60,6 @@ namespace DragonBall
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -79,10 +73,10 @@ namespace DragonBall
 
             app.UseRouting();
 
-            app.UseCors(x => x
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
+            //app.usecors(x => x
+            //.allowanyorigin()
+            //.allowanymethod()
+            //.allowanyheader());
 
             app.UseAuthorization();
 

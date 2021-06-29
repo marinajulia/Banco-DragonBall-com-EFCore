@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DragonBall.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210629002726_DragonBall")]
+    [Migration("20210629175112_DragonBall")]
     partial class DragonBall
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,8 +113,11 @@ namespace DragonBall.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Senha")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Senha")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
