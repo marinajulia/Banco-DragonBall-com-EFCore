@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace DragonBall.Controllers {
     [Route("v1/account")]
@@ -13,7 +12,8 @@ namespace DragonBall.Controllers {
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
-        public HomeController(IUsuarioRepository usuarioRepository) {
+        public HomeController(IUsuarioRepository usuarioRepository) 
+        {
             _usuarioRepository = usuarioRepository;
         }
 
@@ -22,7 +22,8 @@ namespace DragonBall.Controllers {
         [HttpGet]
         public IActionResult Get() 
         {
-            try {
+            try
+            {
                 var usuarios = _usuarioRepository.Get();
 
                 if (usuarios == null && !usuarios.Any())
@@ -37,10 +38,10 @@ namespace DragonBall.Controllers {
         }
 
         [HttpGet]
-        [Route("Anonymous")]
+        [Route("anonymous")]
         [AllowAnonymous]
-
         public string Anonymous() => "Anônimo";
+
 
         [HttpGet]
         [Route("authenticated")]
@@ -48,22 +49,31 @@ namespace DragonBall.Controllers {
         public string Authenticated() => String.Format("Autenticado = {0}", User.Identity.Name);
 
 
-        //[HttpPost]
-        //[Route("login")]
-        //[AllowAnonymous]
+        [HttpPost]
+        [Route("login")]
+        [AllowAnonymous]
 
-        //public async Task<ActionResult<dynamic>> Authenticate([FromBody] Usuario model) {
-        //    var usuario = UsuarioRepository.Get(model.UserName, model.Senha);
-        //    if (usuario == null)
-        //        return NotFound(new { message = "Usuário ou senha inválidos" });
+        public ActionResult Post(Usuario model) 
+        {
+            try 
+            {
+                if (!ModelState.IsValid)
+                    var teste = _usuarioRepository.Get
+                    var usuarios = _usuarioRepository.Get();
 
-        //    var token = TokenService.GenerateToken(usuario);
-        //    usuario.Senha = "";
-        //    return new {
-        //        usuario = usuario,
-        //        token = token
-        //    };
-        //}
+                return Ok("test");
+                else
+                {
+                    return BadRequest(ModelState);
+
+                }
+            }
+            catch (Exception e) 
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
 
     }
 }

@@ -73,10 +73,7 @@ namespace DragonBall
 
             app.UseRouting();
 
-            //app.usecors(x => x
-            //.allowanyorigin()
-            //.allowanymethod()
-            //.allowanyheader());
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseAuthorization();
 
