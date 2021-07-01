@@ -19,23 +19,23 @@ namespace DragonBall.Controllers {
 
        
 
-        [HttpGet]
-        public IActionResult Get() 
-        {
-            try
-            {
-                var usuarios = _usuarioRepository.Get();
+        //[HttpGet]
+        //public IActionResult Get() 
+        //{
+        //    try
+        //    {
+        //        var usuarios = _usuarioRepository.Get();
 
-                if (usuarios == null && !usuarios.Any())
-                    return BadRequest("Nenhum usuário foi encontrado");
+        //        if (usuarios == null && !usuarios.Any())
+        //            return BadRequest("Nenhum usuário foi encontrado");
 
-                return Ok(usuarios);
-            }
-            catch (Exception e) {
+        //        return Ok(usuarios);
+        //    }
+        //    catch (Exception e) {
 
-                return BadRequest(e.Message);
-            }
-        }
+        //        return BadRequest(e.Message);
+        //    }
+        //}
 
         [HttpGet]
         [Route("anonymous")]
@@ -58,15 +58,15 @@ namespace DragonBall.Controllers {
             try 
             {
                 if (!ModelState.IsValid)
-                    var teste = _usuarioRepository.Get
-                    var usuarios = _usuarioRepository.Get();
-
-                return Ok("test");
-                else
-                {
                     return BadRequest(ModelState);
 
-                }
+                var usuario = _usuarioRepository.Get(model.UserName, model.Senha);
+
+                var token = TokenService.GenerateToken(usuario);
+                usuario.Senha = null;
+                    
+
+                return Ok(usuario);
             }
             catch (Exception e) 
             {
