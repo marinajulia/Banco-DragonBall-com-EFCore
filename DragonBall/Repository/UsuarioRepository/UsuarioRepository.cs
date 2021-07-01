@@ -14,9 +14,26 @@ namespace DragonBall.Repository.UsuarioRepository {
             }
         }
 
+        public UsuarioDto GetUser(string username, string password)
+        {
+            using (var context = new DataContext())
+            {
+                var usuario = context.Usuario.FirstOrDefault(x => x.UserName == username && x.Senha == password);
 
-        //public IEnumerable <Usuario> Get() {
-        //    using (var context = new DataContext()) {
+                return new UsuarioDto
+                {
+                    UserId = usuario.UserId,
+                    UserName = usuario.UserName,
+                    Role = usuario.Role
+                };
+            }
+        }
+
+
+        //public IEnumerable<Usuario> GetUsuarios()
+        //{
+        //    using (var context = new DataContext())
+        //    {
         //        var user = context.Usuario;
         //        return user.ToList();
         //    }

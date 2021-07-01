@@ -3,6 +3,7 @@ using DragonBall.Models;
 using DragonBall.Repository.InfoRacaRepository;
 using DragonBall.Repository.RacaRepository;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DragonBall.Controllers
 {
@@ -20,6 +21,7 @@ namespace DragonBall.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Get()
         {
             var infoRacas = _infoRacaRepository.Get();
@@ -27,6 +29,7 @@ namespace DragonBall.Controllers
         }
 
         [HttpGet("findbyid")]
+        [Authorize]
         public ActionResult GetById(int id)
         {
             var infoRaca = _infoRacaRepository.GetById(id);
@@ -38,6 +41,7 @@ namespace DragonBall.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public ActionResult Post(InfoRaca infoRaca)
         {
             if (!ModelState.IsValid)

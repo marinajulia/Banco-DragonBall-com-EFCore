@@ -1,6 +1,7 @@
 using System;
 using DragonBall.Models;
 using DragonBall.Repository.RacaRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DragonBall.Controllers
@@ -17,9 +18,8 @@ namespace DragonBall.Controllers
         }
 
         [HttpGet]
-        [Route("")]
-
-        public ActionResult Get()
+        [Authorize]
+        public IActionResult Get()
         {
             var raca = _racaRepository.Get();
             return Ok(raca);
@@ -27,6 +27,7 @@ namespace DragonBall.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Post(Raca raca)
         {
 
@@ -53,6 +54,7 @@ namespace DragonBall.Controllers
         }
 
         [HttpGet("findbyid")]
+        [Authorize]
         public ActionResult GetById(int id)
         {
             var raca = _racaRepository.GetById(id);

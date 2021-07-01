@@ -3,6 +3,7 @@ using DragonBall.Models;
 using DragonBall.Repository.ClasseRepository;
 using DragonBall.Repository.PersonagemRepository;
 using DragonBall.Repository.RacaRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DragonBall.Controllers
@@ -23,6 +24,7 @@ namespace DragonBall.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
             var personagens = _personagemRepository.Get();
@@ -31,6 +33,7 @@ namespace DragonBall.Controllers
         }
 
         [HttpGet("findbyid")]
+        [Authorize]
         public ActionResult GetById(int id)
         {
             var personagem = _personagemRepository.GetById(id);
@@ -52,6 +55,7 @@ namespace DragonBall.Controllers
         // }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Post(Personagem personagem)
         {
             try

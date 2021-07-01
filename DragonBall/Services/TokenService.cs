@@ -9,7 +9,7 @@ using System.Text;
 namespace DragonBall.Services {
     //recebe o usuário e gera um token
     public static class TokenService {
-        public static string GenerateToken(Usuario usuario) {
+        public static string GenerateToken(UsuarioDto usuario) {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
 

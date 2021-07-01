@@ -1,5 +1,6 @@
 using DragonBall.Models;
 using DragonBall.Repository.ClasseRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DragonBall.Controllers
@@ -16,6 +17,7 @@ namespace DragonBall.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Get()
         {
             var classes = _classeRepository.Get();
@@ -23,8 +25,9 @@ namespace DragonBall.Controllers
             return Ok(classes);
         }
 
-
+        
         [HttpPost]
+        [Authorize]
         public ActionResult Post(Classe classe)
         {
             if (ModelState.IsValid)
@@ -39,7 +42,9 @@ namespace DragonBall.Controllers
             }
 
         }
+        
         [HttpGet("findbyid")]
+        [Authorize]
         public IActionResult GetById(int id)
         {
             var classe = _classeRepository.GetById(id);

@@ -14,6 +14,35 @@ namespace DragonBall.Controllers {
             _usuarioRepository = usuarioRepository;
         }
 
+        [HttpPost]
+        [Route("login")]
+        [AllowAnonymous]
+
+        public IActionResult Post(Usuario model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
+                var usuario = _usuarioRepository.GetUser(model.UserName, model.Senha);
+
+                if (usuario == null)
+                    return NotFound("Usuario e senha nâo encontrados");
+
+                var token = TokenService.GenerateToken(usuario);
+
+                return Ok(new
+                {
+                    usuario,
+                    token
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
         [HttpGet]
         [Route("anonymous")]
@@ -26,52 +55,24 @@ namespace DragonBall.Controllers {
         [Authorize]
         public string Authenticated() => String.Format("Autenticado = {0}", User.Identity.Name);
 
-
-        [HttpPost]
-        [Route("login")]
-        [AllowAnonymous]
-
-        public ActionResult Post(Usuario model) {
-            try {
-                Console.WriteLine(model.UserName);
-                Console.WriteLine(model.Senha);
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
-
-                var usuario = _usuarioRepository.Get(model.UserName, model.Senha);
-
-                if(usuario == null)
-                    return NotFound("Usuario e senha nâo encontrados");
-
-                var token = TokenService.GenerateToken(usuario);
-                usuario.Senha = null;
-
-
-                return Ok(usuario);
-            }
-            catch (Exception e) {
-                return BadRequest(e.Message);
-            }
-
-            //[HttpGet]
-            //public IActionResult Get() 
-            //{
-            //    try
-            //    {
-            //        var usuarios = _usuarioRepository.Get();
-
-            //        if (usuarios == null && !usuarios.Any())
-            //            return BadRequest("Nenhum usuário foi encontrado");
-
-            //        return Ok(usuarios);
-            //    }
-            //    catch (Exception e) {
-
-            //        return BadRequest(e.Message);
-            //    }
-            //}
-
-        }
-
     }
 }
+
+//[HttpGet]
+//public IActionResult GetUsuarios()
+//{
+//    try
+//    {
+//        var usuarios = _usuarioRepository.GetUsuarios();
+
+//        if (usuarios == null && !usuarios)
+//            return BadRequest("Nenhum usuário foi encontrado");
+
+//        return Ok(usuarios);
+//    }
+//    catch (Exception e)
+//    {
+
+//        return BadRequest(e.Message);
+//    }
+//}
