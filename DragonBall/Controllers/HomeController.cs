@@ -8,34 +8,31 @@ using System.Linq;
 
 namespace DragonBall.Controllers {
     [Route("v1/account")]
-    public class HomeController : ControllerBase 
-    {
+    public class HomeController : ControllerBase {
         private readonly IUsuarioRepository _usuarioRepository;
 
-        public HomeController(IUsuarioRepository usuarioRepository) 
-        {
+        public HomeController(IUsuarioRepository usuarioRepository) {
             _usuarioRepository = usuarioRepository;
         }
 
-       
 
-        //[HttpGet]
-        //public IActionResult Get() 
-        //{
-        //    try
-        //    {
-        //        var usuarios = _usuarioRepository.Get();
+        [HttpGet]
+        public IActionResult Get(string nome, string senha) {
+            try 
+            {
+                var usuarios = _usuarioRepository.Get(nome, senha);
 
-        //        if (usuarios == null && !usuarios.Any())
-        //            return BadRequest("Nenhum usuário foi encontrado");
+                if (usuarios == null)
+                    return BadRequest("Nenhum usuário foi encontrado");
 
-        //        return Ok(usuarios);
-        //    }
-        //    catch (Exception e) {
+                return Ok(usuarios);
+            }
+            catch (Exception e) 
+            {
 
-        //        return BadRequest(e.Message);
-        //    }
-        //}
+                return BadRequest(e.Message);
+            }
+        }
 
         [HttpGet]
         [Route("anonymous")]
@@ -53,10 +50,8 @@ namespace DragonBall.Controllers {
         [Route("login")]
         [AllowAnonymous]
 
-        public ActionResult Post(Usuario model) 
-        {
-            try 
-            {
+        public ActionResult Post(Usuario model) {
+            try {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
@@ -64,14 +59,31 @@ namespace DragonBall.Controllers {
 
                 var token = TokenService.GenerateToken(usuario);
                 usuario.Senha = null;
-                    
+
 
                 return Ok(usuario);
             }
-            catch (Exception e) 
-            {
+            catch (Exception e) {
                 return BadRequest(e.Message);
             }
+
+            //[HttpGet]
+            //public IActionResult Get() 
+            //{
+            //    try
+            //    {
+            //        var usuarios = _usuarioRepository.Get();
+
+            //        if (usuarios == null && !usuarios.Any())
+            //            return BadRequest("Nenhum usuário foi encontrado");
+
+            //        return Ok(usuarios);
+            //    }
+            //    catch (Exception e) {
+
+            //        return BadRequest(e.Message);
+            //    }
+            //}
 
         }
 
