@@ -4,7 +4,6 @@ using DragonBall.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
 
 namespace DragonBall.Controllers {
     [Route("v1/account")]
@@ -15,24 +14,6 @@ namespace DragonBall.Controllers {
             _usuarioRepository = usuarioRepository;
         }
 
-
-        [HttpGet]
-        public IActionResult Get(string nome, string senha) {
-            try 
-            {
-                var usuarios = _usuarioRepository.Get(nome, senha);
-
-                if (usuarios == null)
-                    return BadRequest("Nenhum usuário foi encontrado");
-
-                return Ok(usuarios);
-            }
-            catch (Exception e) 
-            {
-
-                return BadRequest(e.Message);
-            }
-        }
 
         [HttpGet]
         [Route("anonymous")]
@@ -52,10 +33,15 @@ namespace DragonBall.Controllers {
 
         public ActionResult Post(Usuario model) {
             try {
+                Console.WriteLine(model.UserName);
+                Console.WriteLine(model.Senha);
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
                 var usuario = _usuarioRepository.Get(model.UserName, model.Senha);
+
+                if(usuario == null)
+                    return NotFound("Usuario e senha nâo encontrados");
 
                 var token = TokenService.GenerateToken(usuario);
                 usuario.Senha = null;

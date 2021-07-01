@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DragonBall.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210629175112_DragonBall")]
+    [Migration("20210701142452_DragonBall")]
     partial class DragonBall
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

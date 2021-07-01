@@ -6,7 +6,7 @@ namespace DragonBall.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallToken;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-TUN7NB2\SQLEXPRESS;Initial Catalog=DragonBallToken;Integrated Security=True");
             //Banco de dados computador pessoal DESKTOP-TUN7NB2\SQLEXPRESS (DESKTOP-TUN7NB2\Marina)
             //Banco de dados computador empresa @"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=DragonBallAPI2;Integrated Security=True"
         }
