@@ -49,16 +49,25 @@ namespace DragonBall.Controllers {
         [Route("cadastro")]
         public ActionResult PostCadastro(Usuario usuario)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var usuarios = _usuarioRepository.PostCadastro(usuario);
+                if (ModelState.IsValid)
+                {
+                    var usuarios = _usuarioRepository.PostCadastro(usuario);
 
-                return Ok(usuarios);
+                    return Ok(usuarios);
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
             }
-            else
+            catch (Exception e)
             {
-                return BadRequest(ModelState);
+
+                return BadRequest("Já existe um cadastro com esse nome de usuário");
             }
+          
 
         }
 

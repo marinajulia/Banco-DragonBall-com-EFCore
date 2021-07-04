@@ -30,17 +30,6 @@ namespace DragonBall.Repository.UsuarioRepository {
         }
 
 
-        //public IEnumerable<Usuario> GetUsuarios()
-        //{
-        //    using (var context = new DataContext())
-        //    {
-        //        var user = context.Usuario;
-        //        return user.ToList();
-        //    }
-
-        //}
-
-
         public Usuario Post(Usuario usuario) {
             using (var context = new DataContext()) {
                 var jaExiste = VerificarUsuario.VerificaNomeUsuario(context, usuario.UserName);
@@ -54,7 +43,7 @@ namespace DragonBall.Repository.UsuarioRepository {
             }
         }
 
-        public Usuario PostCadastro(Usuario usuario)
+        public UsuarioDto PostCadastro(Usuario usuario)
         {
             using (var context = new DataContext())
             {
@@ -64,7 +53,12 @@ namespace DragonBall.Repository.UsuarioRepository {
                 {
                     context.Usuario.Add(usuario);
                     context.SaveChanges();
-                    return usuario;
+                    return new UsuarioDto
+                    {
+                        UserId = usuario.UserId,
+                        UserName = usuario.UserName,
+                        Role = usuario.Role
+                    };
 
                 }
                 else

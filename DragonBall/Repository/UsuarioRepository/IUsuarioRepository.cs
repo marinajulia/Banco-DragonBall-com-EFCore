@@ -6,7 +6,7 @@ namespace DragonBall.Repository.UsuarioRepository {
         Usuario Get(string username, string password);
         //IEnumerable<Usuario> GetUsuarios();
         Usuario Post(Usuario usuario);
-        Usuario PostCadastro(Usuario usuario);
+        UsuarioDto PostCadastro(Usuario usuario);
         UsuarioDto GetUser(string username, string password);
     }
 }
