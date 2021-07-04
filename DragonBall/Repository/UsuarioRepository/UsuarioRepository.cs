@@ -49,8 +49,15 @@ namespace DragonBall.Repository.UsuarioRepository {
             {
                 var jaExiste = VerificarUsuario.VerificaNomeUsuario(context, usuario.UserName);
                 if (!jaExiste)
-
                 {
+                    var password = usuario.Senha;
+                    Chilkat.Crypt2 crypt = new Chilkat.Crypt2();
+                    crypt.HashAlgorithm = "md5";
+                    crypt.EncodingMode = "hex";
+                    string senhaCriptografada = crypt.HashStringENC(password);
+
+                    Console.WriteLine("MD5 hash (as a hex string) = " + senhaCriptografada);
+                    usuario.Senha = senhaCriptografada;
                     context.Usuario.Add(usuario);
                     context.SaveChanges();
                     return new UsuarioDto

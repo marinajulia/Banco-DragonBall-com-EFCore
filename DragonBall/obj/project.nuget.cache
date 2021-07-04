@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MHtEPtJ6s5EJ8vCm/BzfAJp3kQc9tZWnM9Or3JRsYAiDqGHqTdJoREQwX68tsyWAN0hd/ALvqeLRDTij4Cif1A==",
+  "dgSpecHash": "m305/jBtWR6L/QjT7n9+Rp5Rl1Z9v7uoV0crOAmw5BvUqV1DEYV85Y1n8duRTxebUiPaoDT0eZHV2vZ4cFHNMw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Marina\\Desktop\\Banco-DragonBall-com-EFCore\\DragonBall\\DragonBall.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Marina\\.nuget\\packages\\chilkat-x64\\9.5.0.87\\chilkat-x64.9.5.0.87.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -126,5 +127,16 @@
     "C:\\Users\\Marina\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'chilkat-x64 9.5.0.87' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "chilkat-x64",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

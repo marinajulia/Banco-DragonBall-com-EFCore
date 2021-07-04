@@ -271,3 +271,4 @@ C:\Users\Marina\Desktop\Banco-DragonBall-com-EFCore\DragonBall\obj\Debug\net5.0\
 C:\Users\Marina\Desktop\Banco-DragonBall-com-EFCore\DragonBall\obj\Debug\net5.0\DragonBall.RazorTargetAssemblyInfo.cache
 C:\Users\Marina\Desktop\Banco-DragonBall-com-EFCore\DragonBall\obj\Debug\net5.0\DragonBall.csproj.CopyComplete
 C:\Users\Marina\Desktop\Banco-DragonBall-com-EFCore\DragonBall\obj\Debug\net5.0\DragonBall.genruntimeconfig.cache
+C:\Users\Marina\Desktop\Banco-DragonBall-com-EFCore\DragonBall\bin\Debug\net5.0\ChilkatDotNet46.dll
