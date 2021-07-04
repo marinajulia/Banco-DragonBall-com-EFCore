@@ -38,9 +38,9 @@ namespace DragonBall.Controllers {
                     token
                 });
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return BadRequest(e.Message);
+                return BadRequest("Usuario ou senha inválidos");
             }
         }
 

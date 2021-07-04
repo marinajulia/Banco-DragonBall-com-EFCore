@@ -4,10 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DragonBall.Repository.UsuarioRepository {
-    public class UsuarioRepository : IUsuarioRepository {
-        public Usuario Get(string username, string password) {
-            using (var context = new DataContext()) {
+namespace DragonBall.Repository.UsuarioRepository
+{
+    public class UsuarioRepository : IUsuarioRepository
+    {
+        public Usuario Get(string username, string password)
+        {
+            using (var context = new DataContext())
+            {
                 var usuario = context.Usuario
                     .FirstOrDefault(x => x.UserName == username && x.Senha == password);
                 return usuario;
@@ -20,24 +24,34 @@ namespace DragonBall.Repository.UsuarioRepository {
             {
                 var usuario = context.Usuario.FirstOrDefault(x => x.UserName == username && x.Senha == password);
 
+                if (usuario == null)
+                    throw new Exception();
+
                 return new UsuarioDto
                 {
                     UserId = usuario.UserId,
                     UserName = usuario.UserName,
                     Role = usuario.Role
                 };
+
+
+
             }
         }
 
 
-        public Usuario Post(Usuario usuario) {
-            using (var context = new DataContext()) {
+        public Usuario Post(Usuario usuario)
+        {
+            using (var context = new DataContext())
+            {
                 var jaExiste = VerificarUsuario.VerificaNomeUsuario(context, usuario.UserName);
-                if (jaExiste) {
-                   
+                if (jaExiste)
+                {
+
                     return usuario;
                 }
-                else {
+                else
+                {
                     throw new Exception();
                 }
             }
@@ -56,7 +70,6 @@ namespace DragonBall.Repository.UsuarioRepository {
                     crypt.EncodingMode = "hex";
                     string senhaCriptografada = crypt.HashStringENC(password);
 
-                    Console.WriteLine("MD5 hash (as a hex string) = " + senhaCriptografada);
                     usuario.Senha = senhaCriptografada;
                     context.Usuario.Add(usuario);
                     context.SaveChanges();
