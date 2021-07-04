@@ -18,24 +18,28 @@ namespace DragonBall.Repository.UsuarioRepository
             }
         }
 
-        public UsuarioDto GetUser(string username, string password)
+
+        public UsuarioDto GetUser(string username, string senharecebida)
         {
             using (var context = new DataContext())
             {
-                var usuario = context.Usuario.FirstOrDefault(x => x.UserName == username && x.Senha == password);
+                var password = senharecebida;
+                Chilkat.Crypt2 crypt = new Chilkat.Crypt2();
+                crypt.HashAlgorithm = "md5";
+                crypt.EncodingMode = "hex";
+                string senhaCriptografada = crypt.HashStringENC(password);
 
-                if (usuario == null)
+                var Comparacaousuario = context.Usuario.FirstOrDefault(x => x.UserName == username && x.Senha == senhaCriptografada);
+
+                if (Comparacaousuario == null)
                     throw new Exception();
 
                 return new UsuarioDto
                 {
-                    UserId = usuario.UserId,
-                    UserName = usuario.UserName,
-                    Role = usuario.Role
+                    UserId = Comparacaousuario.UserId,
+                    UserName = Comparacaousuario.UserName,
+                    Role = Comparacaousuario.Role
                 };
-
-
-
             }
         }
 
@@ -47,7 +51,6 @@ namespace DragonBall.Repository.UsuarioRepository
                 var jaExiste = VerificarUsuario.VerificaNomeUsuario(context, usuario.UserName);
                 if (jaExiste)
                 {
-
                     return usuario;
                 }
                 else
@@ -73,6 +76,7 @@ namespace DragonBall.Repository.UsuarioRepository
                     usuario.Senha = senhaCriptografada;
                     context.Usuario.Add(usuario);
                     context.SaveChanges();
+
                     return new UsuarioDto
                     {
                         UserId = usuario.UserId,
