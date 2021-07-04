@@ -44,6 +44,24 @@ namespace DragonBall.Controllers {
             }
         }
 
+
+        [HttpPost]
+        [Route("cadastro")]
+        public ActionResult PostCadastro(Usuario usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                var usuarios = _usuarioRepository.PostCadastro(usuario);
+
+                return Ok(usuarios);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+
+        }
+
         [HttpGet]
         [Route("anonymous")]
         [AllowAnonymous]

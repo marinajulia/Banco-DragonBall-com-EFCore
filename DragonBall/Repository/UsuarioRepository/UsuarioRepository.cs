@@ -45,9 +45,7 @@ namespace DragonBall.Repository.UsuarioRepository {
             using (var context = new DataContext()) {
                 var jaExiste = VerificarUsuario.VerificaNomeUsuario(context, usuario.UserName);
                 if (jaExiste) {
-
-
-
+                   
                     return usuario;
                 }
                 else {
@@ -56,6 +54,24 @@ namespace DragonBall.Repository.UsuarioRepository {
             }
         }
 
-       
+        public Usuario PostCadastro(Usuario usuario)
+        {
+            using (var context = new DataContext())
+            {
+                var jaExiste = VerificarUsuario.VerificaNomeUsuario(context, usuario.UserName);
+                if (!jaExiste)
+
+                {
+                    context.Usuario.Add(usuario);
+                    context.SaveChanges();
+                    return usuario;
+
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+        }
     }
 }
