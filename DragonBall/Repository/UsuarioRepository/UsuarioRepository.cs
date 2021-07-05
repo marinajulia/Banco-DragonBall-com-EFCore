@@ -1,5 +1,6 @@
 ﻿using DragonBall.Data;
 using DragonBall.Models;
+using DragonBall.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +24,7 @@ namespace DragonBall.Repository.UsuarioRepository
         {
             using (var context = new DataContext())
             {
-                var password = senharecebida;
-                Chilkat.Crypt2 crypt = new Chilkat.Crypt2();
-                crypt.HashAlgorithm = "md5";
-                crypt.EncodingMode = "hex";
-                string senhaCriptografada = crypt.HashStringENC(password);
-
-                var Comparacaousuario = context.Usuario.FirstOrDefault(x => x.UserName == username && x.Senha == senhaCriptografada);
+                var Comparacaousuario = context.Usuario.FirstOrDefault(x => x.UserName == username && x.Senha == PasswordService.Criptografar(senharecebida));
 
                 if (Comparacaousuario == null)
                     throw new Exception();
@@ -67,13 +62,8 @@ namespace DragonBall.Repository.UsuarioRepository
                 var jaExiste = VerificarUsuario.VerificaNomeUsuario(context, usuario.UserName);
                 if (!jaExiste)
                 {
-                    var password = usuario.Senha;
-                    Chilkat.Crypt2 crypt = new Chilkat.Crypt2();
-                    crypt.HashAlgorithm = "md5";
-                    crypt.EncodingMode = "hex";
-                    string senhaCriptografada = crypt.HashStringENC(password);
-
-                    usuario.Senha = senhaCriptografada;
+                    usuario.Senha = PasswordService.Criptografar(usuario.Senha);
+                
                     context.Usuario.Add(usuario);
                     context.SaveChanges();
 
